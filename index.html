@@ -1,0 +1,362 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxTime Watches | Official Rolex Retailer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e9f5ff 100%);
+        }
+        
+        .watch-card {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .watch-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3') center/cover;
+            min-height: 80vh;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(to right, #gold, #silver);
+            border-radius: 2px;
+        }
+        
+        .watch-image {
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .condition-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .new-badge {
+            background: rgba(40, 167, 69, 0.15);
+            color: #28a745;
+        }
+        
+        .secondhand-badge {
+            background: rgba(255, 193, 7, 0.15);
+            color: #ffc107;
+        }
+        
+        footer {
+            background: linear-gradient(to right, #1e293b, #0f172a);
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Hero Section -->
+    <section class="hero-section text-white text-center py-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">LUXTIME WATCHES</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Official Rolex Dealer with Exclusive New & Pre-Owned Collections</p>
+            <div class="search-container max-w-md mx-auto">
+                <input type="text" id="searchInput" placeholder="Search Rolex models..." 
+                       class="w-full py-3 px-4 rounded-full bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 focus:border-gold focus:outline-none placeholder-white placeholder-opacity-70 text-white">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-gray-800">LUX<span class="text-gold">TIME</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#new" class="font-medium hover:text-gold transition">New Watches</a>
+                    <a href="#preowned" class="font-medium hover:text-gold transition">Pre-Owned</a>
+                    <a href="#contact" class="font-medium hover:text-gold transition">Contact</a>
+                </div>
+                <a href="https://wa.me/03319764602" target="_blank" class="btn-whatsapp text-white font-medium px-6 py-2 rounded-full flex items-center">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- New Watches Section -->
+    <section id="new" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">NEW ROLEX WATCHES</h2>
+            <div id="newWatches" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamically populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Owned Watches Section -->
+    <section id="preowned" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center">PRE-OWNED ROLEX WATCHES</h2>
+            <div id="preOwnedWatches" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamically populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="section-title text-3xl font-bold">CONTACT US</h2>
+            <p class="max-w-2xl mx-auto mb-10 text-gray-600">Ready to own your dream Rolex? Contact us immediately via WhatsApp for exclusive offers and personalized assistance.</p>
+            <a href="https://wa.me/03319764602" target="_blank" 
+               class="btn-whatsapp inline-flex items-center justify-center text-white font-bold px-8 py-4 rounded-full text-lg">
+                <i class="fab fa-whatsapp mr-3 text-2xl"></i> Chat on WhatsApp: 03319764602
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">LUXTIME</h3>
+                    <p class="text-gray-300">Your premier destination for authentic Rolex watches - new and pre-owned.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">QUICK LINKS</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#new" class="text-gray-300 hover:text-white transition">New Watches</a></li>
+                        <li><a href="#preowned" class="text-gray-300 hover:text-white transition">Pre-Owned Watches</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Authenticity Guarantee</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Warranty Information</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">CONTACT INFO</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> Dubai, UAE</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-2"></i> +971 03319764602</li>
+                        <li class="flex items-center"><i class="fab fa-whatsapp mr-2"></i> 03319764602</li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-2"></i> info@luxtimewatches.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">FOLLOW US</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition text-2xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition text-2xl"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400 text-sm">
+                <p>© 2023 LuxTime Watches. All rights reserved. All Rolex watches are 100% authentic.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Watch data
+        const watches = {
+            new: [
+                {
+                    id: 1,
+                    name: "Rolex Submariner",
+                    price: "$9,550",
+                    image: "https://images.unsplash.com/photo-1547042575-2b886c3cebd8?ixlib=rb-4.0.3",
+                    description: "The iconic dive watch with unidirectional bezel and excellent legibility."
+                },
+                {
+                    id: 2,
+                    name: "Rolex Daytona",
+                    price: "$$12,550",
+                    image: "https://images.unsplash.com/photo-1590367292496-c26be9c1b07f?ixlib=rb-4.0.3",
+                    description: "The legendary chronograph designed for racing enthusiasts."
+                },
+                {
+                    id: 3,
+                    name: "Rolex GMT-Master II",
+                    price: "$9,150",
+                    image: "https://images.unsplash.com/photo-1614164913-5254732b7cd5?ixlib=rb-4.0.3",
+                    description: "The perfect companion for travelers and globetrotters."
+                },
+                {
+                    id: 4,
+                    name: "Rolex Yacht-Master",
+                    price: "$11,550",
+                    image: "https://images.unsplash.com/photo-1622560480654-d96214fdc887?ixlib=rb-4.0.3",
+                    description: "Designed for sailing and luxury yachting adventures."
+                }
+            ],
+            preowned: [
+                {
+                    id: 1,
+                    name: "Rolex Datejust",
+                    price: "$7,200",
+                    image: "https://images.unsplash.com/photo-1617858123227-51c819bc9c23?ixlib=rb-4.0.3",
+                    description: "The timeless classic with elegant design and Swiss precision."
+                },
+                {
+                    id: 2,
+                    name: "Rolex Explorer II",
+                    price: "$8,450",
+                    image: "https://images.unsplash.com/photo-1622560480662-520a0ae1a1e0?ixlib=rb-4.0.3",
+                    description: "The adventurous field watch perfect for explorers and outdoor enthusiasts."
+                },
+                {
+                    id: 3,
+                    name: "Rolex Air King",
+                    price: "$7,850",
+                    image: "https://images.unsplash.com/photo-1617858123171-3f35e8d2b6b0?ixlib=rb-4.0.3",
+                    description: "The modern update of the original pilot watch with bold aesthetics."
+                },
+                {
+                    id: 4,
+                    name: "Rolex Milgauss",
+                    price: "$8,950",
+                    image: "https://images.unsplash.com/photo-1622560480654-d96214fdc887?ixlib=rb-4.0.3",
+                    description: "The antimagnetic watch designed for scientific professionals and enthusiasts."
+                }
+            ]
+        };
+
+        // DOM Elements
+        const newWatchesContainer = document.getElementById('newWatches');
+        const preOwnedWatchesContainer = document.getElementById('preOwnedWatches');
+        const searchInput = document.getElementById('searchInput');
+
+        // Generate watch cards
+        function generateWatchCard(watch, condition) {
+            return `
+                <div class="watch-card rounded-xl overflow-hidden shadow-lg animate-fade-in">
+                    <div class="relative">
+                        <img src="${watch.image}" alt="${watch.name}" class="watch-image">
+                        <span class="condition-badge ${condition === 'new' ? 'new-badge' : 'secondhand-badge'}">
+                            ${condition === 'new' ? 'NEW' : 'PRE-OWNED'}
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">${watch.name}</h3>
+                        <p class="text-gray-600 mb-4">${watch.description}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-gold">${watch.price}</span>
+                            <a href="https://wa.me/03319764602?text=I'm interested in the ${watch.name} priced at ${watch.price}" 
+                               target="_blank" 
+                               class="btn-whatsapp text-white font-bold px-5 py-2 rounded-full flex items-center">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render watches
+        function renderWatches() {
+            // New watches
+            newWatchesContainer.innerHTML = watches.new.map(watch => 
+                generateWatchCard(watch, 'new')
+            ).join('');
+
+            // Pre-owned watches
+            preOwnedWatchesContainer.innerHTML = watches.preowned.map(watch => 
+                generateWatchCard(watch, 'pre-owned')
+            ).join('');
+        }
+
+        // Search functionality
+        function filterWatches() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            // Filter new watches
+            const filteredNew = watches.new.filter(watch => 
+                watch.name.toLowerCase().includes(searchTerm)
+            );
+            
+            // Filter pre-owned watches
+            const filteredPreOwned = watches.preowned.filter(watch => 
+                watch.name.toLowerCase().includes(searchTerm)
+            );
+            
+            // Render filtered watches
+            newWatchesContainer.innerHTML = filteredNew.map(watch => 
+                generateWatchCard(watch, 'new')
+            ).join('');
+            
+            preOwnedWatchesContainer.innerHTML = filteredPreOwned.map(watch => 
+                generateWatchCard(watch, 'pre-owned')
+            ).join('');
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', filterWatches);
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', renderWatches);
+    </script>
+</body>
+</html>
+```
